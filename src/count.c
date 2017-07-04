@@ -4,6 +4,8 @@
 
 int main (int argc, char ** argv){
     FILE *fp;
+    char ch;
+    int count = 0;
     if(argc != 2){
         // argv[0] is the running file name
         printf("Usage: %s filename\n",argv[0]);
@@ -14,11 +16,13 @@ int main (int argc, char ** argv){
         printf("can not open %s \n",argv[1]);
         exit(1);
     }
-
-    while ( (ch = getc(fp) = ){
-
+      
+    while ( (ch = getc(fp)) != EOF ){
+            putc(ch,stdout);
+            count++;
     }
 
+    fclose(fp);
 }
 
 

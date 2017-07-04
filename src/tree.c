@@ -11,6 +11,7 @@ typedef struct binary_tree node;
 
 node *tree;
 
+
 // 接下来我们需要把数据插入到对应的位置上；
 //
 //   我们希望树左边分支的的数据总是比树右边分支的要小；
