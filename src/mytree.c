@@ -20,7 +20,7 @@ struct node* newNode(int data)
      node->data = data;
      node->left = NULL;
      node->right = NULL;
-
+     node->left = NULL;
      return(node);
 }
 
