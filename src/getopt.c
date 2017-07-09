@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-/*
- * isprint
- */
+// prototype of isprint
 #include <ctype.h>
 #include <unistd.h>
 

@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "list.h"
+#include "new_list.h"
 link freelist;
 
 /**

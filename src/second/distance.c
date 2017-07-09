@@ -11,7 +11,7 @@ int main (int argc, char *argv[]) {
     int N = atoi(argv[1]);// 要计算的点数
     float d = atof(argv[2]);//distance
     // 用一个以为数组去容纳所有点
-    point *a = malloc(N*sizeof(*a));
+    point *a = (point *)malloc(N*sizeof(*a));
     // 内存是否分配成功检查,这是良好的编程习惯
     if(a == NULL){
     	printf("Insufficient memory.\n");

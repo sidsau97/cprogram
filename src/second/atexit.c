@@ -1,11 +1,14 @@
 /* byebye.c -- atexit() example */
 #include <stdio.h>
 #include <stdlib.h>
+
 void sign_off(void);
 void too_bad(void);
+
 int main(void)
 {
     int n;
+    /* Register a function to be called when `exit' is called.  */
     atexit(sign_off); /* register the sign_off() function */
     puts("Enter an interger");
     if (scanf("%d",&n) != 1)
@@ -17,11 +20,14 @@ int main(void)
     printf("%d is %s.\n", n, (n % 2 == 0)? "even" : "odd");
     return 0;
 }
+
+
 void sign_off(void)
 {
     puts("Thus terminates another magnificent program from");
     puts("SeeSaw Software!");
 }
+
 void too_bad(void)
 {
     puts("SeeSaw Software extends its heartfelt condolences");

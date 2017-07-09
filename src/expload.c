@@ -15,6 +15,7 @@ char** explode(char delimiter, char* str) {
 		x = str[i++];
 		if (x==delimiter || x=='\0') {
 			r[j][k] = '\0';
+			//
 			r[j] = (char*)realloc(r[j], k*sizeof(char));
 			k = 0;
 			r = (char**)realloc(r, (++j+1)*sizeof(char**));

@@ -21,6 +21,7 @@ void ToUpper(char *); // convert string to uppercase
 void ToLower(char *); // convert string to uppercase
 void Transpose(char *); // transpose cases
 void Dummy(char *); // leave string unaltered
+
 int main(void) {
 	char line[81];
 	char copy[81];
@@ -104,7 +105,7 @@ void ToLower(char *str) {
 }
 
 void Transpose(char *str) {
-	//		ulti-character character constant
+//	ulti-character character constant
 //	LOG_MSG('%c',*str);
 	LOG_MSG("first letter is:%c ",*str);
 	while (*str) {
