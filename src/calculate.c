@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "STACK.h"
+#include "second/stack.h"
 int main(int argc, char *argv[]) {
 	/**
 	 * "1 2 3 + 4 5 * * +"

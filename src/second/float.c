@@ -7,6 +7,6 @@
  */
 Number randNum() {
 // 返回0~1 之间的浮点数
-//	srand(time(0));
+	srand(time(0));
 	return 1.0 * rand() / RAND_MAX;
 }

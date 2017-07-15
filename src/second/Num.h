@@ -1,2 +1,2 @@
 typedef float Number;
-Number randNum ();
+//Number randNum ();

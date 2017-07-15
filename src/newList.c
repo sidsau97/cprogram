@@ -2,9 +2,6 @@
 #include <stdlib.h>
 #include "newList.h"
 
-
-
-
 /* copies an item tinto a node*/
 static void CopyToNode (Item item, Node *pnode){
     /* structure copy */

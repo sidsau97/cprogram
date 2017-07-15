@@ -5,7 +5,7 @@ struct binary_tree {
     int data;
     struct binary_tree * left;
     struct binary_tree * right;
-}; // 结构体结尾必须加引号
+};
 
 typedef struct binary_tree node;
 
@@ -13,12 +13,8 @@ node *tree;
 
 
 // 接下来我们需要把数据插入到对应的位置上；
-//
 //   我们希望树左边分支的的数据总是比树右边分支的要小；
-//
-//   至于为什么我们暂时不解释；
-
-void insert (node ** tree, int val){
+void binary_tree_insert (node ** tree, int val){
     node * temp = NULL;
     if(!(*tree)) {
         // return
@@ -31,9 +27,9 @@ void insert (node ** tree, int val){
     }
     if(val < ((*tree)->data)){
         // & 明白了
-        insert(&(*tree)->left,val);
+        binary_tree_insert(&(*tree)->left,val);
     }else if (val > ((*tree)->data)){
-       insert(&(*tree)->right, val);
+       binary_tree_insert(&(*tree)->right, val);
     }
 }
 
@@ -55,11 +51,11 @@ void print_preorder(node * tree) {
     }
 }
 
-                   void print_inorder(node * tree) {
+                   void print_inorder_internal(node * tree) {
     if(tree) {
-        print_inorder(tree->left);
+        print_inorder_internal(tree->left);
         printf("%d\n",tree->data);
-        print_inorder(tree->right);
+        print_inorder_internal(tree->right);
     }
 }
 
@@ -80,19 +76,19 @@ int main(void)
 
     root = NULL;
     /* Inserting nodes into tree */
-    insert(&root,9);
-    insert(&root,4);
-    insert(&root,15);
-    insert(&root,6);
-    insert(&root,12);
-    insert(&root,17);
-    insert(&root,2);
+    binary_tree_insert(&root,9);
+    binary_tree_insert(&root,4);
+    binary_tree_insert(&root,15);
+    binary_tree_insert(&root,6);
+    binary_tree_insert(&root,12);
+    binary_tree_insert(&root,17);
+    binary_tree_insert(&root,2);
 
     printf("Pre Order Display\n");
     print_preorder(root);
 
     printf("In Order Display\n");
-    print_inorder(root);
+    print_inorder_internal(root);
 
     printf("Post Order Display\n");
     print_postorder(root);

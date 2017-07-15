@@ -19,6 +19,7 @@ char my_strcpy(char *dest, char *src){
 
 /*
  * 标准c库里边不存在这个函数
+ * 类似 php 版本的 strpos
  */
 int my_strpos(char *haystack, char *needle) {
 	int i, j;
@@ -27,7 +28,6 @@ int my_strpos(char *haystack, char *needle) {
 			if (haystack[i + j] != needle[j]) break;
 		}
 		if (needle[j] == 0) return i;
-
 	}
 	return -1;
 }
