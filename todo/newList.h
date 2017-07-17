@@ -41,13 +41,10 @@ unsigned int ListItemCount( const List *);
 /* function returns 0*/
 int AddItem(Item item, List * plist);
 
-
-
 void showmovies(Item item);
 
 // 遍历接受一个用于处理节点的指针函数
 void Traverse( List *, void (* pfun)(Item item));
-
 
 void EmptyTheList(List *);
 

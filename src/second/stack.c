@@ -6,15 +6,34 @@
 /*
  * check if head equal to NULL to indicate whether the stack is empty or not
  */
-int STACKisEmpty(STACK *stack) {
+int STACKisEmpty(STACK stack) {
 	return 0 == stack->count;
 }
+
+/**
+ * 终于搞定了,按照值返回行了
+ * 他妈的,之前犯了一个严重错误,试图图过二级指针连分配待改变值,
+ * 二级指针存改变值的前提是一级指针的存在啊,一级指针都不存在,改变个毛线
+ */
+STACK STACKinit() {
+	STACK stack;
+	stack = (STACK) malloc(sizeof(*stack));
+	if (NULL == stack) {
+		printf("not sufficient memory!\n");
+		exit(EXIT_FAILURE);
+	}
+	stack->head = NULL;
+	stack->count = 0;
+	return stack;
+}
+
+
 
 /*
  * insert a new item to the stack
  * <b>note</b> keep the head as the last inserted item
  */
-void STACKpush(STACK *stack, char* item) {
+void STACKpush(STACK stack, char* item) {
 	STACKnode *a;
 	a = (STACKnode *) malloc(sizeof(*a));
 	if (NULL == a) {
@@ -42,7 +61,7 @@ void STACKpush(STACK *stack, char* item) {
  *
  *  @return NULL indicate the stack is empty
  */
-char* STACKpop(STACK *stack) {
+char* STACKpop(STACK stack) {
 	// 1 表示true , c 语言中 boolean 值是从 C99 才开始引入的,引用的时候还要加头文件,麻烦
 	if (1 == STACKisEmpty(stack))
 		return NULL;
@@ -57,28 +76,13 @@ char* STACKpop(STACK *stack) {
 	return item;
 }
 
-/**
- * 终于搞定了,按照值返回行了
- * 他妈的,之前犯了一个严重错误,试图图过二级指针连分配待改变值,
- * 二级指针存改变值的前提是一级指针的存在啊,一级指针都不存在,改变个毛线
- */
-STACK* STACKinit() {
-	STACK *stack;
-	stack = (STACK *) malloc(sizeof(*stack));
-	if (NULL == stack) {
-		printf("not sufficient memory!\n");
-		exit(EXIT_FAILURE);
-	}
-	stack->head = NULL;
-	stack->count = 0;
-	return stack;
-}
+
 
 /**
  * 函数指针原型写错了,之前未什么返回值类型 void
  */
-void STACKtravel(STACK *stack, void (*STACKnodePrinter)(STACKnode *node)) {
-	STACKnode * node;
+void STACKtravel(STACK stack, void (*STACKnodePrinter)(STACKnode node)) {
+	STACKnode  node;
 	node = stack->head;
 	/**
 	 * 小于等于,将常量放在前面需要一段时间适应
@@ -91,11 +95,11 @@ void STACKtravel(STACK *stack, void (*STACKnodePrinter)(STACKnode *node)) {
 	}
 }
 
-void STACKnodePrinter(STACKnode * node) {
+void STACKnodePrinter(STACKnode  node) {
 	printf("'%s', ", node->item);
 }
 
-void STACKprinter(STACK *stack, void (*STACKnodePrinter)(STACKnode *node)) {
+void STACKprinter(STACK stack, void (*STACKnodePrinter)(STACKnode node)) {
 	printf("{'count' : %d, 'list': [ ", stack->count);
 	STACKtravel(stack, STACKnodePrinter);
 	printf(" ]}\n");

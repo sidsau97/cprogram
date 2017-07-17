@@ -5,7 +5,10 @@ glue.c variarg.c  use macro
 
 ### 终端交互
 
-array_of_string.c  arrayOfString.c  input.c  fgets.c  eat_line.c  my_stdio.h(一次读入一行)
+array_of_string.c  arrayOfString.c  input.c  fgets.c  eat_line.c  my_stdio.h(一次读入一行) showmenu.c(实用方法 eatline)
+
+getopt.c 参数
+
 ```
 getchar
 

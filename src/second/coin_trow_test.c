@@ -9,41 +9,31 @@ int throw_coin_show_head() {
  * 抛硬币实验
  * 第一个参数是单次实验规模N,第二个参数是实验规模M,也即实验次数
  */
-int main(int argc, char *argv[]) {
+int main(int argc, char **argv) {
+	if (argc < 3) {
+		printf("argument 1 as N: the total coins!\n"
+				"argument 2 as M: the time of the experiment!\n");
+		exit(EXIT_FAILURE);
+	}
 	int N = atoi(argv[1]);
 	int M = atoi(argv[2]);
+
 	// initiate the array
 	int i, j, count;
-	int *a = malloc((N + 1) * sizeof(int));
-	/**
-	 * 用刚才申请的内存空间初始化数组
-	 * a[i] = 0; //没实验前,M次实验种,出现i次正面朝上情况
-	 */
+	int *a = (int *) malloc((N + 1) * sizeof(int));
+//	没实验前,M次实验种,出现i次正面朝上情况
 	for (i = 0; i <= N; i++) {
 		a[i] = 0;
 	}
 
-//	for (j = 0; j < M; j++) {
-//		count = 0;
-//		for (i = 0; i < N; i++) {
-//			if (throw_coin_show_head()) {
-//				count++;
-//			}
-//		}
-//		a[count]++;
-//	}
-
-	/**
-	 * 上面这段两层循环压缩一下,可以为:
-	 * 这样就最终得到了书上的结果
-	 */
-
-	for (j = 0; j < M; j++, a[count]++) {
-
+	for (j = 0; j < M; j++) {
 		for (count = 0, i = 0; i < N; i++) {
-			if (throw_coin_show_head())
+			if (throw_coin_show_head()) {
 				count++;
+			}
 		}
+		// 每次循环结束,统计正面向上的次数,写成这样死路清晰
+		a[count]++;
 	}
 
 	/*

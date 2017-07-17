@@ -7,23 +7,23 @@
 typedef struct _STACKnode {
 	char item[50];
 	struct _STACKnode * next;
-} STACKnode;
+} * STACKnode;
 
 typedef struct _STACK {
 	// head is the start position of a stack,it is also the last inserted member
-	STACKnode *head;
+	STACKnode head;
 	int count;
-} STACK;
+} * STACK;
 
 /**
  * initiate a stack
  */
-STACK* STACKinit();
+STACK STACKinit();
 
 /*
  * check if head equal to NULL to indicate whether the stack is empty or not
  */
-int STACKisEmpty(STACK *stack);
+int STACKisEmpty(STACK stack);
 
 /*
  * insert a new item to the stack
@@ -33,7 +33,7 @@ int STACKisEmpty(STACK *stack);
  * and set item property as the given parameter
  * then move pointer header to the newest created and initiated node
  */
-void STACKpush(STACK *stack, char* item);
+void STACKpush(STACK stack, char* item);
 
 /**
  *  @return
@@ -44,16 +44,14 @@ void STACKpush(STACK *stack, char* item);
  * and  return the item of head
  *  NULL indicate the stack is empty
  */
-char* STACKpop(STACK *stack);
+char* STACKpop(STACK stack);
 
-/**
- * 函数指针原型写错了,之前未什么返回值类型 void
- */
-void STACKtravel(STACK *stack, void (*STACKnodePrinter)(STACKnode *node));
 
-void STACKprinter(STACK *stack, void (*STACKnodePrinter)(STACKnode *node));
+void STACKtravel(STACK stack, void (*STACKnodePrinter)(STACKnode node));
 
-void STACKnodePrinter(STACKnode * node);
+void STACKprinter(STACK stack, void (*STACKnodePrinter)(STACKnode node));
+
+void STACKnodePrinter(STACKnode node);
 
 
 
