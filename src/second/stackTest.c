@@ -13,7 +13,6 @@
 int main(int argc, char **argv) {
 	STACK *books;
 	books = STACKinit();
-	//@TODO 加入终端交互的内容,联系终端交互的熟练程度,为后期学习二插树做准备
 	STACKpush(books, "master algorithom with c");
 	STACKpush(books, "c primer: 5th Edition");
 	// argc 比实际输入的项目多一个

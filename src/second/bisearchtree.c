@@ -220,7 +220,6 @@ int bisearch_tree_delete(BiSearchTree tree, Item node) {
 	// 左右子数都有(这个要重新排列? 貌似比较复杂)
 	else {
 		// 如果能找到一个比左子树更大的值
-//		puts("@TODO");
 		// find max from its left
 		BiSearchTree lt = t->lChild;
 		BiSearchTree lparent = t->lChild;

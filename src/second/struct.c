@@ -36,7 +36,6 @@ int caculateDaysTillSpecificMonth(int monthNum) {
 	int days = 0;
 	int i = 0;
 	for (i = 0; i < monthNum; i++) {
-		// todo test
 		days += year[i].numOfDays;
 	}
 	// format ‘%S’ expects argument of type ‘wchar_t *’, but argument 3 has type ‘char *’
